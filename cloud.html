@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Solutions Architect & Practitioner Syllabus</title>
+    <style>
+        :root {
+            --aws-navy: #131A22;
+            --aws-dark-blue: #232F3E;
+            --aws-orange: #FF9900;
+            --aws-hover-orange: #e88b00;
+            --bg-light: #F8F9FA;
+            --card-bg: #FFFFFF;
+            --text-main: #1D232C;
+            --text-secondary: #5F6B7A;
+            --border-color: #EAEDED;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Hero / Header Section */
+        header {
+            background-color: var(--aws-dark-blue);
+            color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--aws-orange);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--aws-orange);
+            color: var(--aws-navy);
+            font-weight: bold;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Stats / Highlights Banner */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .meta-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .meta-card strong {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--aws-navy);
+        }
+
+        .meta-card span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Modules Section */
+        h2.section-title {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--aws-navy);
+            border-left: 4px solid var(--aws-orange);
+            padding-left: 10px;
+        }
+
+        .module-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        details {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        details:hover {
+            border-color: #cbd5e1;
+        }
+
+        details[open] {
+            border-color: var(--aws-orange);
+        }
+
+        summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+            background-color: var(--card-bg);
+            user-select: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .summary-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .module-tag {
+            font-size: 0.75rem;
+            background-color: #f1f5f9;
+            color: var(--text-secondary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        summary::after {
+            content: "▼";
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: transform 0.2s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(180deg);
+            color: var(--aws-orange);
+        }
+
+        .module-content {
+            padding: 0 20px 20px 20px;
+            border-top: 1px solid var(--border-color);
+            background-color: #fafbfc;
+        }
+
+        .module-content ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .module-content li {
+            margin-bottom: 8px;
+            color: #334155;
+            font-size: 0.95rem;
+        }
+
+        .lab-highlight {
+            margin-top: 15px;
+            padding: 10px 14px;
+            background-color: #fff8eb;
+            border-left: 3px solid var(--aws-orange);
+            font-size: 0.9rem;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lab-highlight strong {
+            color: #995c00;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            background-color: var(--aws-navy);
+            color: #8898aa;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            summary {
+                font-size: 0.95rem;
+                padding: 14px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge">Certification & Skills Track</div>
+        <h1>AWS Cloud Training Syllabus</h1>
+        <p>A comprehensive roadmap covering cloud fundamentals, core infrastructure services, security, serverless, and production architecture.</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Course Metadata -->
+        <div class="meta-grid">
+            <div class="meta-card">
+                <strong>8 Weeks</strong>
+                <span>Estimated Duration</span>
+            </div>
+            <div class="meta-card">
+                <strong>10+ Hands-on Labs</strong>
+                <span>Practical Experience</span>
+            </div>
+            <div class="meta-card">
+                <strong>Beginner to Intermediate</strong>
+                <span>Target Level</span>
+            </div>
+            <div class="meta-card">
+                <strong>SAA-C03 / CLF-C02</strong>
+                <span>Exam Alignment</span>
+            </div>
+        </div>
+
+        <!-- Modules Accordion -->
+        <h2 class="section-title">Course Modules</h2>
+        
+        <div class="module-list">
+
+            <!-- Module 1 -->
+            <details open>
+                <summary>
+                    <div class="summary-left">
+                        <span class="module-tag">Module 1</span>
+                        <span>Introduction to Cloud Computing & AWS Global Infrastructure</span>
+                    </div>
+                </summary>
+                <div class="module-content">
+                    <ul>
+                        <li>Cloud Computing models: IaaS, PaaS, SaaS, and Shared Responsibility Model</li>
+                        <li>AWS Global Infrastructure: Regions, Availability Zones (AZs), Edge Locations, and Local Zones</li>
+                        <li>Setting up an AWS Free Tier Account & Billing Alerts via AWS Budgets</li>
+                        <li>Navigating the AWS Management Console, CloudShell, and AWS CLI basics</li>
+                    </ul>
+                    <div class="lab-highlight">
+                        <strong>Hands-on Lab:</strong> Account setup, configuring zero-dollar spend budget alerts, and AWS CLI authentication setup.
+                    </div>
+                </div>
+            </details>
+
+            <!-- Module 2 -->
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <span class="module-tag">Module 2</span>
+                        <span>Identity and Access Management (IAM) & Security</span>
+                    </div>
+                </summary>
+                <div class="module-content">
+                    <ul>
+                        <li>IAM Users, User Groups, Roles, and Policies (JSON Structure)</li>
+                        <li>Multi-Factor Authentication (MFA) and Least Privilege Principle</li>
+                        <li>AWS KMS (Key Management Service) & AWS Secrets Manager</li>
+                        <li>AWS Organizations, Service Control Policies (SCPs), and AWS GuardDuty</li>
+                    </ul>
+                    <div class="lab-highlight">
+                        <strong>Hands-on Lab:</strong> Create fine-grained IAM policies, assume a cross-service role, and enforce MFA.
+                    </div>
+                </div>
+            </details>
+
+            <!-- Module 3 -->
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <span class="module-tag">Module 3</span>
+                        <span>Compute Services: EC2, Containers & Serverless</span>
+                    </div>
+                </summary>
+                <div class="module-content">
+                    <ul>
+                        <li>Amazon EC2: Instance types, pricing models (On-Demand, Spot, Reserved), and AMIs</li>
+                        <li>Storage for EC2: Elastic Block Store (EBS) and Instance Store</li>
+                        <li>Container basics: Amazon ECS, ECR, and AWS Fargate overview</li>
+                        <li>Introduction to Serverless: AWS Lambda and Event-driven Architecture</li>
+                    </ul>
+                    <div class="lab-highlight">
+                        <strong>Hands-on Lab:</strong> Launch a secure Linux EC2 instance running an Nginx web server using User Data scripts.
+                    </div>
+                </div>
+            </details>
+
+            <!-- Module 4 -->
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <span class="module-tag">Module 4</span>
+                        <span>Networking & Content Delivery (Amazon VPC)</span>
+                    </div>
+                </summary>
+                <div class="module-content">
+                    <ul>
+                        <li>Virtual Private Cloud (VPC) CIDR blocks, Public & Private Subnets</li>
+                        <li>Internet Gateways (IGW), Route Tables, and NAT Gateways</li>
+                        <li>Security Groups (Stateful) vs. Network Access Control Lists (NACLs - Stateless)</li>
+                        <li>VPC Peering, Transit Gateways, and AWS Route 53 (DNS Management)</li>
+                        <li>Content delivery acceleration with Amazon CloudFront and AWS WAF</li>
+                    </ul>
+                    <div class="lab-highlight">
+                        <strong>Hands-on Lab:</strong> Build a custom 2-tier VPC from scratch with public/private subnets and a NAT Gateway.
+                    </div>
+                </div>
+            </details>
+
+            <!-- Module 5 -->
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <span class="module-tag">Module 5</span>
+                        <span>Storage & Database Services</span>
+                    </div>
+                </summary>
+                <div class="module-content">
+                    <ul>
+                        <li>Amazon S3: Storage tiers, Lifecycle Rules, Versioning, and Bucket Policies</li>
+                        <li>Shared file storage: Amazon EFS vs. Amazon FSx</li>
+                        <li>Relational Databases: Amazon RDS (Multi-AZ vs. Read Replicas) & Amazon Aurora</li>
+                        <li>NoSQL & In-Memory: Amazon DynamoDB (Partition Keys, RCUs/WCUs) & ElastiCache</li>
+                    </ul>
+                    <div class="lab-highlight">
+                        <strong>Hands-on Lab:</strong> Host a static website on Amazon S3 secured with CloudFront and SSL certificates.
+                    </div>
+                </div>
+            </details>
+
+            <!-- Module 6 -->
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <span class="module-tag">Module 6</span>
+                        <span>High Availability, Scaling & Monitoring</span>
+                    </div>
+                </summary>
+                <div class="module-content">
+                    <ul>
+                        <li>Elastic Load Balancing (ALB, NLB, GLB) and health checks</li>
+                        <li>Auto Scaling Groups (ASG): Scaling policies, launch templates, and metrics</li>
+                        <li>Monitoring & Logging: Amazon CloudWatch (Metrics, Logs, Alarms) and AWS CloudTrail</li>
+                        <li>Decoupling architectures: Amazon SQS, SNS, and EventBridge</li>
+                    </ul>
+                    <div class="lab-highlight">
+                        <strong>Hands-on Lab:</strong> Deploy an auto-scaling, fault-tolerant web fleet behind an Application Load Balancer.
+                    </div>
+                </div>
+            </details>
+
+            <!-- Module 7 -->
+            <details>
+                <summary>
+                    <div class="summary-left">
+                        <span class="module-tag">Module 7</span>
+                        <span>Infrastructure as Code (IaC) & Well-Architected Framework</span>
+                    </div>
+                </summary>
+                <div class="module-content">
+                    <ul>
+                        <li>Introduction to AWS CloudFormation templates (YAML/JSON)</li>
+                        <li>Overview of AWS Cloud Development Kit (CDK) & Terraform basics</li>
+                        <li>AWS Well-Architected Framework: The 6 Pillars of architectural excellence</li>
+                        <li>Disaster Recovery (DR) strategies: Backup & Restore, Pilot Light, Warm Standby, Multi-Region</li>
+                    </ul>
+                    <div class="lab-highlight">
+                        <strong>Capstone Project:</strong> Deploy a production-ready, highly available 3-tier architecture with CloudFormation.
+                    </div>
+                </div>
+            </details>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AWS Cloud Training Program. All trademarks belong to their respective owners.</p>
+    </footer>
+
+</body>
+</html>
